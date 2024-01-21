@@ -1,0 +1,20 @@
+ [
+      {
+        "name": "Adidas",
+        "image": "https://i.ibb.co/ctN4xxd/n1.png"
+      },
+      {
+        "name": "Gucci",
+        "image": "https://example.com/gucci_logo.jpg"
+      },
+      {
+        "name": "Dior",
+        "image": "https://example.com/dior_logo.jpg"
+      },
+      {
+        "name": "Nike",
+        "image": "https://example.com/nike_logo.jpg"
+      }
+    ]
+
+  

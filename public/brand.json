@@ -1,0 +1,40 @@
+ [
+      {
+        "id": 1,
+        "name": "Adidas",
+        "image": "https://i.ibb.co/gPWDyQK/adidas.png",
+        "featured":"https://i.ibb.co/pZkkrSh/g3.png"
+        
+      },
+      {
+        "id": 2,
+        "name": "Gucci",
+        "image": "https://i.ibb.co/Z823MzN/gucci.png",
+        "featured":"https://i.ibb.co/ctN4xxd/n1.png"
+      },
+      {
+        "id": 3,
+        "name": "Prada",
+        "image": "https://i.ibb.co/8djR3n5/prada.png",
+        "featured":"https://i.ibb.co/yR4HtzH/ad6.png"
+      },
+      {
+        "id": 4,
+        "name": "Nike",
+        "image": "https://i.ibb.co/BZsCYNS/Nike.png"
+        
+      },
+      {
+        "id": 5,
+        "name": "Dior",
+        "image": "https://i.ibb.co/Ytkc0M6/dior.png"
+        
+      },
+      {
+        "id": 6,
+        "name": "Louis Vuitton",
+        "image": "https://i.ibb.co/hdJCQ1t/lv.png"
+      }
+    ]
+  
+  
