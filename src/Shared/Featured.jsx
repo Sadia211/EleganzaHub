@@ -1,25 +1,45 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import Productcard from '../components/Productcard/Productcard';
+import FeaturedCard from './FeaturedCard';
+const Featured = () => {
+  const { brandname } = useParams();
+  const [products, setProducts] = useState([]);
 
-const Featured = ({ feature }) => {
-  
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        console.log(`Fetching products for brand: ${brandname}`);
+        const response = await fetch("https://brands-server.vercel.app/product");
+        console.log('Response status:', response.status);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        console.log('Fetched products:', data);
+        setProducts(data);
+      } catch (error) {
+        console.error('Error fetching products:', error);
+        setProducts([]);
+      }
+    };
 
-  const{featured}=feature
+    fetchProducts();
+  }, [brandname]);
+
   return (
-          
- 
-   
-    <div className="card w-80 bg-white border-2 hover:border-t-4 rounded-none py-4 ">
-<figure className="px-10 h-56">
-  <img src={featured} />
-</figure>
-<div className="card-body items-center text-center">
-  
-
-
-  </div>
-</div>
-   
+    <div>
+      <div className='mb-10 mx-20'>
+        <div className='grid grid-cols-3 gap-2 py-4 mx-20'>
+          {products.slice(0, 3).map((product) => (
+            <FeaturedCard
+              key={product._id}
+              product={product}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
   );
 };
 

@@ -10,6 +10,7 @@ import Login from '../../Login/Login.jsx'
 import Register from '../../Register/Register.jsx'
 import Cart from '../../Cart/Cart.jsx'
 import Updateproduct from '../../UpdateProduct/Updateproduct.jsx'
+import PrivateRoute from './PrivateRoute.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -24,19 +25,15 @@ const router = createBrowserRouter([
   },
  
  
-  {path:'/brand/:name',
-  element:<Brandproducts></Brandproducts>,
-  loader:()=>fetch('http://localhost:5000/product')
-    },
 {
   path:"/addproduct",
-  element:<Addproduct></Addproduct>
+  element:<PrivateRoute><Addproduct></Addproduct></PrivateRoute>
 },
 
 {
-  path:"/products/:brandname",
+  path:"/product/:brandname",
   element:<Products></Products>,
-  loader:({params})=>fetch('http://localhost:5000/product')
+  loader:({params})=>fetch(`https://brands-server.vercel.app/product/brand/${params.brandname}`)
 },
 {
     path:"/login",
@@ -55,8 +52,9 @@ const router = createBrowserRouter([
     
     },
     {
-      path:"/update",
-      element:<Updateproduct></Updateproduct>,
+      path:"/update/:id",
+      element:<PrivateRoute><Updateproduct></Updateproduct></PrivateRoute>,
+      loader:({params})=>fetch(`https://brands-server.vercel.app/product/id/${params.id}`)
     
     }
   

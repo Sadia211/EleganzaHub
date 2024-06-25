@@ -21,7 +21,7 @@ const Addproduct = () => {
         console.log(newProduct);
 
         // send data to the server
-      {fetch(': https://brandshop-server-phto3igz1-sadia211s-projects.vercel.app/product', 
+      {fetch('https://brands-server.vercel.app/product', 
       {
             method: 'POST',
             headers: {

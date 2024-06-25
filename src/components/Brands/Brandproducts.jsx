@@ -9,7 +9,7 @@ const Brandproducts = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-            const response = await fetch(`http://localhost:5000/product`);
+            const response = await fetch(`http://localhost:5000/product/${brandname}`);
             const data = await response.json();
             setBrands(data);
         };

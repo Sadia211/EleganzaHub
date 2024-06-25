@@ -1,18 +1,29 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
 import { useState,useEffect } from 'react';
+import { useContext } from 'react';
+import { AuthContext } from '../components/Provider/Authprovider';
 const Navbar = () => {
  
-
+  const {user,logOut}=useContext(AuthContext)
+const handlelogout=()=>{
+  logOut()
+  .then(()=>{})
+  .catch(error=>console.log(error))
+}
    const navLinks=<>
    
      <li  className='font-vollkorn'>  
      <nav id="sidebar">
      <NavLink to="/" className="nav-link" > Home</NavLink></nav></li>   
        <li className='font-vollkorn'><NavLink to='/addproduct' className="nav-link" >Add Product</NavLink></li> 
-       <li className='font-vollkorn'> <NavLink to='/cart' className="nav-link">My cart</NavLink></li>
-       <li className='font-vollkorn'> <NavLink to='/login' className="nav-link">Login</NavLink></li>
+       
+       {user?.email?<>
+      
+        <li className='font-vollkorn'> <button onClick={handlelogout}>Logout</button></li>
+      </>: <li className='font-vollkorn'> <NavLink to='/login' className="nav-link">Login</NavLink></li>}
     </>
+    
     
     
     return (        <div className="navbar">
